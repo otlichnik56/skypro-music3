@@ -1,0 +1,203 @@
+@keyframes likeAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes dislikeAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.liked {
+    animation: likeAnimation 0.3s ease-in-out;
+}
+
+.disliked {
+    animation: dislikeAnimation 0.3s ease-in-out;
+}
+
+.playlistItem {
+    width: 100%;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.playlistTrack {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.trackTitle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 447px;
+    cursor: pointer;
+}
+
+.trackTitleImage {
+    width: 51px;
+    height: 51px;
+    padding: 16px;
+    background: #313131;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-right: 17px;
+}
+
+.trackTitleSvg {
+    width: 18px;
+    height: 17px;
+    fill: transparent;
+    stroke: #4e4e4e;
+}
+
+.trackTitleLink {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+}
+
+.trackTitleSpan {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4e4e4e;
+}
+
+.trackAuthor {
+    width: 321px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.trackAuthorLink {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.trackAlbum {
+    width: 245px;
+}
+
+.trackItem {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: 66px;
+}
+
+.trackTime {
+    cursor: pointer;
+}
+
+.trackAlbumLink {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #696969;
+}
+
+.trackTimeSvg {
+    width: 14px;
+    height: 12px;
+    fill: transparent;
+    stroke: #696969;
+}
+
+.trackTimeText {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: right;
+    color: #696969;
+}
+
+.blinkedMark {
+    position: relative;
+    left: -50px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #B672FF;
+}
+
+.active {
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.66, 0, 0, 1);
+    animation-duration: 1s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

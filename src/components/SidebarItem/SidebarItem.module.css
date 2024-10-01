@@ -1,0 +1,18 @@
+.sidebarItem {
+    width: 250px;
+    height: 150px;
+}
+
+.sidebarItem:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.sidebarLink {
+    width: 100%;
+    height: 100%;
+}
+
+.sidebarImg {
+    width: 100%;
+    height: auto;
+}
