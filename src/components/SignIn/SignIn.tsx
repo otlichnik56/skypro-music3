@@ -26,6 +26,7 @@ export function SignIn() {
   async function login(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    /** 
     if (!userData.email || !userData.password) {
       setError("Заполните все поля");
       return;
@@ -34,15 +35,17 @@ export function SignIn() {
     if (userData.password.length < 6) {
       setError("Пароль должен быть больше 6 символов");
       return;
-    }
+    }*/
 
     try {
       setError("");
       await dispatch(signIn(userData)).unwrap();
       await dispatch(getToken(userData)).unwrap();
       router.push("/tracks");
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
     }
   }
 
