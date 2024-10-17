@@ -26,6 +26,7 @@ export function SignIn() {
   async function login(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    
     if (!userData.email || !userData.password) {
       setError("Заполните все поля");
       return;
@@ -41,8 +42,21 @@ export function SignIn() {
       await dispatch(signIn(userData)).unwrap();
       await dispatch(getToken(userData)).unwrap();
       router.push("/tracks");
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      // Проверка, если ошибка является экземпляром Error
+      if (error instanceof Error) {
+        setError(error.message);
+      } else if (typeof error === "object" && error !== null) {
+        // Дополнительная проверка для обработки ошибок от сервера
+        const serverError = (error as { response?: { data?: { message?: string } } }).response;
+        if (serverError?.data?.message) {
+          setError(serverError.data.message); // Сообщение об ошибке от сервера
+        } else {
+          setError("Произошла неизвестная ошибка. Попробуйте снова.");
+        }
+      } else {
+        setError("Произошла ошибка. Попробуйте снова.");
+      }
     }
   }
 
